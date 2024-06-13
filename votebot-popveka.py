@@ -17,7 +17,8 @@ for _ in range(1000):
 
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
-        driver.get('https://app.sli.do/event/85ZF2aNYLHiAc1xUBo3UBB/live/polls')
+        # insert website URL
+        driver.get('website.url.com')
 
         # Give the page some time to load
         time.sleep(3)
@@ -31,20 +32,16 @@ for _ in range(1000):
             pass  # If there's no cookie notification, just continue
 
 
-                # Click the first option in the first poll
-        first_option_first_poll = driver.find_element(By.XPATH, '//input[@aria-label="Buržuazija - Hint"]')
+                # Click on the song with aria-label: song-you-wish-to-vote-for
+        first_option_first_poll = driver.find_element(By.XPATH, '//input[@aria-label="song-you-wish-to-vote-for"]')
         driver.execute_script("arguments[0].scrollIntoView(true);", first_option_first_poll)
         time.sleep(0.5)
         first_option_first_poll.click()
         time.sleep(1)
 
-        # Scroll the element into view
-        #houdini = driver.find_element(By.XPATH, '//span[text() = "Eminem - Houdini]')
-        #houdini.click()
-        #time.sleep(1)
-
-                # Click the first option in the second poll
-        first_option_second_poll = driver.find_element(By.XPATH, '//input[@aria-label="Eminem - Houdini"]')
+                # if there are multiple polls
+                # Click on the song with aria-label: song-you-wish-to-vote-for-2
+        first_option_second_poll = driver.find_element(By.XPATH, '//input[@aria-label="song-you-wish-to-vote-for-2"]')
         driver.execute_script("arguments[0].scrollIntoView(true);", first_option_second_poll)
         time.sleep(0.5)
         first_option_second_poll.click()
